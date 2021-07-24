@@ -1,0 +1,137 @@
+#maingrid-singlecontrol {
+  margin: auto;
+}
+
+#rightgrid-nav img {
+  height: 70px;
+  width: 100%;
+
+}
+
+#rightgrid-nav .button {
+    font-size: 0.6rem;
+}
+
+body {
+  background: #d4dadc;
+}
+
+#cardsgrid-totalcard .card {
+  width: 100%;
+}
+
+#cardsgrid-sailingcard .card {
+  width: 100%;
+}
+
+#cardsgrid-portedcard .card {
+  width: 100%;
+}
+
+#cardsgrid-totalcard .icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: x-large;
+}
+
+#cardsgrid-sailingcard .icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: x-large;
+}
+
+#cardsgrid-portedcard .icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: x-large;
+}
+
+.bg {
+  fill: transparent !important;
+}
+
+#cardsgrid-infocard .header {
+  font-weight: 100;
+}
+
+#cardsgrid-plot .header {
+  font-weight: 100;
+}
+
+.bordersolid {
+  border-left-style: solid !important;
+  border-color: #c51d38 !important;
+}
+
+#rightgrid-nav .button {
+  background: transparent !important;
+  margin: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-bottom: 10px!important;
+  padding-top: 0!important;
+}
+
+.toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: .5em !important;
+  left: 250px !important;
+}
+
+#map {
+  height: 95vh !important;
+}
+
+.fullwidth {
+ width: 100% !important;
+}
+
+.main-svg{
+      border-radius: .28571429rem;
+        border-left-style: solid !important;
+  border-color: #c51d38 !important;
+}
+
+.card {
+    border-left-style: solid !important;
+  border-color: #c51d38 !important;
+}
+
+.largeBlueText {
+  color: #2185d0 !important;
+  font-size: 85px !important;
+}
+
+.largeRedText {
+  color: #e03997 !important;
+  font-size: 85px !important;
+}
+
+.largeGreenText {
+  color: #21ba45 !important;
+  font-size: 85px !important;
+}
+
+.main-svg {
+  background: rgb(34 36 38 / 5%) !important;
+  marging-bottom: 10px;
+}
+
+.fullwidth {
+    background: rgb(34 36 38 / 15%) !important;
+}
+
+.fullwidth .card {
+    background: rgb(34 36 38 / 15%) !important;
+}
+
+.fullwidth {
+    width: 100% !important;
+    padding-bottom: 10px !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
