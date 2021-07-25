@@ -1,6 +1,11 @@
-# Absolute panel for used to select vesel and leaflet details from a dropdown
+#' @title UI for selecting vessel and map texture
+#' @description  Absolute panel for used to select vesel and leaflet details from a dropdown
+#'
+#' @param id shiny id
+#'
+#' @importFrom shiny NS tagList absolutePanel
+#' @importFrom shiny.sementic dropdown_input label
 uiDropdown <- function(id) {
-  
   ns <- NS(id)
   
   tagList(
@@ -10,7 +15,12 @@ uiDropdown <- function(id) {
       width = 300,
       
       p("Select a Vessel:"),
-      dropdown_input(ns("vessel"), c(), default_text = "Vessel", value = ""),
+      dropdown_input(
+        ns("vessel"),
+        c(),
+        default_text = "Vessel",
+        value = ""
+      ),
       
       p("Select a Map Texture:"),
       dropdown_input(
@@ -18,7 +28,7 @@ uiDropdown <- function(id) {
         choices = c(
           "OpenStreetMap.Mapnik",
           "CartoDB.Positron",
-           "Esri.NatGeoWorldMap",
+          "Esri.NatGeoWorldMap",
           "Stamen.Terrain"
         ),
         choices_value = c(
@@ -36,15 +46,26 @@ uiDropdown <- function(id) {
   )
 }
 
-
+#' @title Server for selecting vessel and map texture
+#' @description  Absolute panel for used to select vesel and leaflet details from a dropdown
+#'
+#' @param id shiny id
+#' @param ships ships dataset
+#' @param datastore reactable data store to return values from user selection
+#'
+#' @importFrom shiny reactive observeEvent
+#' @importFrom shiny.sementic update_dropdown_input
 dropdownServer <- function(id, ships, datastore) {
-  moduleServer(id, 
+  moduleServer(id,
                function(input, output, session) {
-                 
                  ns <- session$ns
-            
-                 datastore$vessel <- reactive({input$vessel})
-                 datastore$texture <- reactive({input$mapTexture})
+                 
+                 datastore$vessel <- reactive({
+                   input$vessel
+                 })
+                 datastore$texture <- reactive({
+                   input$mapTexture
+                 })
                  
                  observeEvent(datastore$nav_option, {
                    update_dropdown_input(session, "vessel",
@@ -53,4 +74,3 @@ dropdownServer <- function(id, ships, datastore) {
                  })
                })
 }
-    

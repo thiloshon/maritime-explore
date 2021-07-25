@@ -4,8 +4,8 @@ library(shinyjs)
 library(leaflet)
 library(plotly)
 
-source("module_dropdown.R")
-source("module_navbar.R")
+source("R/module_dropdown.R")
+source("R/module_navbar.R")
 
 # Access this app at https://shining-thiloshon.shinyapps.io/MaritimeExplorer/
 
@@ -14,7 +14,7 @@ ship_dataset <- as.data.frame(readRDS("data/shiny_data.rds"))
 ship_stats <- readRDS("data/additional_vis.rds")
 
 data_store <- reactiveValues(
-    nav_option = "Passenger", 
+    nav_option = character(), 
     vessel = character(), 
     texture = character()
     )
@@ -50,7 +50,6 @@ ui <- semanticPage(
             icon = "ship"
         ),
         
-        #------
         left =  grid(
             grid_template(default = list(
                 areas = rbind(c("nav", "map")),
@@ -70,7 +69,7 @@ ui <- semanticPage(
             ))
             #------
         ),
-        #------
+        
         right = grid(
             grid_template(default = list(
                 areas = rbind(

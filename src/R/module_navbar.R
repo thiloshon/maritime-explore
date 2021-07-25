@@ -1,5 +1,10 @@
-
-# Instead of dropdown a collection of buttons to increase aesthetics.
+#' @title UI for Vertical navbar of buttons to choose ship type
+#' @description  Instead of dropdown a collection of buttons to increase aesthetics.
+#'
+#' @param id shiny id
+#' 
+#' @importFrom shiny NS tagList
+#' @importFrom shiny.sementic action_button
 uiNavbar <- function(id) {
   ns <- NS(id)
   tagList(
@@ -57,7 +62,14 @@ uiNavbar <- function(id) {
   )
 }
 
-
+#' @title Server for Vertical navbar of buttons to choose ship type
+#' @description  Instead of dropdown a collection of buttons to increase aesthetics.
+#'
+#' @param id shiny id
+#' @param datastore reactable data store to return values from user selection
+#' 
+#' @importFrom shiny observeEvent
+#' @importFrom shinyjs runjs
 navbarServer <- function(id, datastore) {
   moduleServer(id,
                function(input, output, session) {
@@ -102,7 +114,12 @@ navbarServer <- function(id, datastore) {
                })
 }
 
+
+#' @description  Internal function to change border color of button on user selection and return user selection
+#'
+#' @internal
 remove_css_class <- function(ns, identifier, navoption, datastore){
+  
   shinyjs::runjs(code = paste('$("#', ns("passenger"), '").removeClass("bordersolid");', sep = ""))
   shinyjs::runjs(code = paste('$("#', ns("pleasure"), '").removeClass("bordersolid");', sep = ""))
   shinyjs::runjs(code = paste('$("#', ns("cargo"), '").removeClass("bordersolid");', sep = ""))
@@ -115,4 +132,5 @@ remove_css_class <- function(ns, identifier, navoption, datastore){
   
   shinyjs::runjs(code = paste('$("#', ns(identifier), '").addClass("bordersolid");', sep = ""))
   datastore$nav_option <- navoption
+  
 }
